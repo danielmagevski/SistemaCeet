@@ -34,7 +34,7 @@ public class TelaSobre extends javax.swing.JInternalFrame {
         setTitle("Sobre");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("                Sistema CEET 1.0 /2009");
+        jLabel1.setText("                Sistema CEET 1.0 /2014");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Autor: Daniel");
