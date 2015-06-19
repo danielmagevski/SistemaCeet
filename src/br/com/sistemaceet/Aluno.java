@@ -1,6 +1,7 @@
 
 package br.com.sistemaceet;
 
+import br.com.sistemaceet.tela.TelaAluno;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,6 +15,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.net.Socket;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -103,7 +105,11 @@ public class Aluno {
             e.getMessage();
         }
         
- }
+ 
+    
+    }
+    
+    
     
     public String[] lerArquivo() throws IOException {
   
@@ -130,6 +136,23 @@ public class Aluno {
 
     }
     
+    public void enviarMensagem(String msg) throws IOException{
+            
+       String mensagem="";
+       
+      
+       try (Socket connection = new Socket ("127.0.0.1", 12345)) {
+            ObjectOutputStream saida = new ObjectOutputStream(connection.getOutputStream());
+            
+            mensagem = "Cliente: " + msg;
+            saida.writeObject(mensagem);
+            saida.flush();
+            
+            
+            saida.close();
+        }
+                    
+        }
     }
  
 
